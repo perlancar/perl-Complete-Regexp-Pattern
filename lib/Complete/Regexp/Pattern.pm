@@ -40,6 +40,7 @@ _
             schema => 'str*',
         },
     },
+    result_naked => 1,
 };
 sub complete_regexp_pattern_module {
     require Complete::Module;
@@ -154,9 +155,14 @@ sub complete_regexp_pattern_pattern {
 
 =head1 SYNOPSIS
 
- use Complete::Riap qw(complete_riap_url);
- my $res = complete_riap_url(word => '/Te', type=>'package');
- # -> {word=>['/Template/', '/Test/', '/Text/'], path_sep=>'/'}
+ use Complete::Regexp::Pattern qw(
+     complete_regexp_pattern_module
+     complete_regexp_pattern_pattern
+ );
+ my $res = complete_regep_pattern_module(word => 'L');
+ # -> {word=>['License', 'License/'], path_sep=>'/'}
 
+ my $res = complete_regep_pattern_pattern(word => 'Y');
+ # -> {word=>['YouTube/video_id'], path_sep=>'/'}
 
 =cut
